@@ -10,3 +10,11 @@ Before compiling, do these steps:
 
 After you have completed the steps described above, run this file:
 > Compile.bat
+
+# Running
+Before running, do these steps:
+1. Install Bochs
+2. Setting up Bochs and saving the config to the root folder of the project
+
+After you have completed the steps described above, run this file:
+> Run.bat
