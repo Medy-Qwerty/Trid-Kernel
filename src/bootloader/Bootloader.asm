@@ -1,7 +1,9 @@
+mov bp, 0x7c00
+mov sp, bp
+
 call PrintString
 
 jmp $
-
 
 PrintString:
     ret
