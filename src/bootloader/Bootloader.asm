@@ -1,11 +1,15 @@
 mov bp, 0x7c00
 mov sp, bp
 
-call PrintString
+mov bx, WelcomeString
+call PrintFunction
 
 jmp $
 
-PrintString:
+PrintFunction:
+    mov ah, 0x0e
+    mov al, [bx]
+    int 0x10
     ret
 
 WelcomeString:
