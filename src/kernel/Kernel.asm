@@ -5,6 +5,7 @@ call PrintFunction
 
 jmp EnterProtectedMode
 
+%include "GDT.asm"
 %include "Print.asm"
 
 KernelLoadedString:
