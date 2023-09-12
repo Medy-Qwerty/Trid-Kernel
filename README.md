@@ -3,6 +3,8 @@ Trid-Kernel is an excellent base for creating your operating system.
 
 Trid-Kernel is a 16-bit kernel, using its own bootloader: T-LDR
 
+![Alt text](https://raw.githubusercontent.com/Medy-Qwerty/Trid-Kernel/dev/assets/Screenshot.png)
+
 # Compiling
 Before compiling, do these steps:
 1. Install NASM

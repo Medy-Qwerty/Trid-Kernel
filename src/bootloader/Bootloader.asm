@@ -10,7 +10,7 @@ call PrintFunction
 
 call ReadKernel
 
-jmp $
+jmp KERNEL_SPACE
 
 %include "Print.asm"
 %include "KernelLDR.asm"
