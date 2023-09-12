@@ -12,7 +12,12 @@ KernelLoadedString:
     db 'Kernel Loaded!',0
 
 EnterProtectedMode:
+    call EnableA20
     cli
+    lgdt [gdt_descriptor]
+    mov eax, cr0
+    or eax, 1
+    mov cr0, eax
     jmp $
 
 EnableA20:
