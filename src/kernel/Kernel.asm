@@ -39,6 +39,8 @@ StartProtectedMode:
     mov ebp, 0x90000
     mov esp, ebp
 
+    mov [0xb8000], byte 'T'
+
     jmp $
 
 times 2048-($-$$) db 0
