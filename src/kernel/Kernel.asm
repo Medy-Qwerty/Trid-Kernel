@@ -40,6 +40,16 @@ StartProtectedMode:
     mov esp, ebp
 
     mov [0xb8000], byte 'T'
+    mov [0xb8002], byte 'r'
+    mov [0xb8004], byte 'i'
+    mov [0xb8006], byte 'd'
+    mov [0xb8008], byte '-'
+    mov [0xb800a], byte 'K'
+    mov [0xb800c], byte 'e'
+    mov [0xb800e], byte 'r'
+    mov [0xb8010], byte 'n'
+    mov [0xb8012], byte 'e'
+    mov [0xb8014], byte 'l'
 
     jmp $
 
