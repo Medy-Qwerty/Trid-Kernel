@@ -29,6 +29,13 @@ EnableA20:
 [bits 32]
 
 StartProtectedMode:
+    mov ax, dataseg
+    mov ds, ax
+    mov ss, ax
+    mov es, ax
+    mov fs, ax
+    mov gs, ax
+    
     jmp $
 
 times 2048-($-$$) db 0
