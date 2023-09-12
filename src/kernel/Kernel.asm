@@ -11,6 +11,7 @@ KernelLoadedString:
     db 'Kernel Loaded!',0
 
 EnterProtectedMode:
+    cli
     ret
 
 times 2048-($-$$) db 0
