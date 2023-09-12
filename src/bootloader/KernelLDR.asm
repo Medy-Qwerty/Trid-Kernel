@@ -1,6 +1,7 @@
 KERNEL_SPACE equ 0x7e00
 
 ReadKernel:
+    mov ah, 0x02
     mov bx, KERNEL_SPACE
     mov al, 4
     mov dl, [BOOT_KERNEL]
