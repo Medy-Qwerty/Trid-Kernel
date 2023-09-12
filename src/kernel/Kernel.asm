@@ -18,12 +18,17 @@ EnterProtectedMode:
     mov eax, cr0
     or eax, 1
     mov cr0, eax
-    jmp $
+    jmp codeseg:StartProtectedMode
 
 EnableA20:
     in al, 0x92
     or al, 2
     out 0x92, al
     ret
+
+[bits 32]
+
+StartProtectedMode:
+    jmp $
 
 times 2048-($-$$) db 0
