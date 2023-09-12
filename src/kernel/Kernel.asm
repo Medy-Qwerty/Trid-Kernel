@@ -3,11 +3,14 @@
 mov bx, KernelLoadedString
 call PrintFunction
 
-jmp $
+jmp EnterProtectedMode
 
 %include "Print.asm"
 
 KernelLoadedString:
     db 'Kernel Loaded!',0
+
+EnterProtectedMode:
+    ret
 
 times 2048-($-$$) db 0
