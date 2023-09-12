@@ -15,6 +15,3 @@ PrintFunction:
         pop bx
 
         ret
-
-WelcomeString:
-    db 'Trid-Kernel Alpha v0.0.3',0
