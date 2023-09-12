@@ -10,6 +10,10 @@ call PrintFunction
 
 call ReadKernel
 
+mov ah, 0x0e
+mov al, [KERNEL_SPACE]
+int 0x10
+
 jmp $
 
 %include "Print.asm"
