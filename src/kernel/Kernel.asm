@@ -1,15 +1,7 @@
-[org 0x7e00]
-
-mov bx, KernelLoadedString
-call PrintFunction
-
 jmp EnterProtectedMode
 
 %include "GDT.asm"
 %include "Print.asm"
-
-KernelLoadedString:
-    db 'Kernel Loaded!',0
 
 EnterProtectedMode:
     call EnableA20
@@ -61,12 +53,14 @@ StartProtectedMode:
     jmp codeseg:Start64Bit
 
 [bits 64]
+[extern _start]
 
 Start64Bit:
     mov edi, 0xb8000
     mov rax, 0x1f201f201f201f20
     mov ecx, 500
     rep stosq
+    call _start
     jmp $
 
 times 2048-($-$$) db 0
