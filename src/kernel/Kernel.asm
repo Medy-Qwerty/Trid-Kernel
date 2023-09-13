@@ -8,6 +8,7 @@ jmp EnterProtectedMode
 %include "GDT.asm"
 %include "Print.asm"
 %include "CPUID.asm"
+%include "SimplePaging.asm"
 
 KernelLoadedString:
     db 'Kernel Loaded!',0
@@ -54,6 +55,7 @@ StartProtectedMode:
 
     call DetectCPUID
     call DetectLongMode
+    call SetUpIdentityPaging
     jmp $
 
 times 2048-($-$$) db 0
