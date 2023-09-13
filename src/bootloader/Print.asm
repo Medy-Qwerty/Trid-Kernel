@@ -17,4 +17,4 @@ PrintFunction:
         ret
 
 WelcomeString:
-    db 'Trid-Kernel Alpha v0.0.5',0
+    db 'Trid-Kernel Alpha v0.0.6',0
