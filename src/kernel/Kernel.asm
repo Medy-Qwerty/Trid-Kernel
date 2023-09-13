@@ -7,8 +7,6 @@ jmp EnterProtectedMode
 
 %include "GDT.asm"
 %include "Print.asm"
-%include "CPUID.asm"
-%include "SimplePaging.asm"
 
 KernelLoadedString:
     db 'Kernel Loaded!',0
@@ -29,6 +27,9 @@ EnableA20:
     ret
 
 [bits 32]
+
+%include "CPUID.asm"
+%include "SimplePaging.asm"
 
 StartProtectedMode:
     mov ax, dataseg
@@ -57,6 +58,15 @@ StartProtectedMode:
     call DetectLongMode
     call SetUpIdentityPaging
     call EditGDT
+    jmp codeseg:Start64Bit
+
+[bits 64]
+
+Start64Bit:
+    mov edi, 0xb8000
+    mov rax, 0x1f201f201f201f20
+    mov ecx, 500
+    rep stosq
     jmp $
 
 times 2048-($-$$) db 0
