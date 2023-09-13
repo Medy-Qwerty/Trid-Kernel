@@ -1,9 +1,7 @@
 # Trid-Kernel
 Trid-Kernel is an excellent base for creating your operating system.
 
-Trid-Kernel is a 32-bit kernel, using its own bootloader: T-LDR
-
-![Alt text](https://raw.githubusercontent.com/Medy-Qwerty/Trid-Kernel/dev/assets/Screenshot.png)
+Trid-Kernel is a 64-bit kernel, using its own bootloader: T-LDR
 
 # Compiling
 Before compiling, do these steps:
