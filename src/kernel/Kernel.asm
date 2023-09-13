@@ -56,6 +56,7 @@ StartProtectedMode:
     call DetectCPUID
     call DetectLongMode
     call SetUpIdentityPaging
+    call EditGDT
     jmp $
 
 times 2048-($-$$) db 0
