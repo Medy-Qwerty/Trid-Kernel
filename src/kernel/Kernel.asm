@@ -7,6 +7,7 @@ jmp EnterProtectedMode
 
 %include "GDT.asm"
 %include "Print.asm"
+%include "CPUID.asm"
 
 KernelLoadedString:
     db 'Kernel Loaded!',0
@@ -51,6 +52,7 @@ StartProtectedMode:
     mov [0xb8012], byte 'e'
     mov [0xb8014], byte 'l'
 
+    call DetectCPUID
     jmp $
 
 times 2048-($-$$) db 0
