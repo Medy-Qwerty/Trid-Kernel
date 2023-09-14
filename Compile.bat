@@ -19,15 +19,14 @@ echo Compiling Kernel...
 cd kernel
 nasm Kernel.asm -f elf64 -o %BUILD_PATH%\KernelASM.o"
 if errorlevel 1 goto error_kernel
-x86_64-elf-gcc -ffreestanding -mno-red-zone -m64 -c "Kernel.cpp" -o %BUILD_PATH%\KernelCPP.o"
-if errorlevel 1 goto error_kernel
-x86_64-elf-ld -o %BUILD_PATH%\Kernel.tmp" -Ttext 0x7e00 %BUILD_PATH%\KernelASM.o" %BUILD_PATH%\KernelCPP.o"
-if errorlevel 1 goto error_kernel
-x86_64-elf-objcopy -O binary %BUILD_PATH%\Kernel.tmp" %BUILD_PATH%\Kernel.bin"
+x86_64-elf-gcc -Ttext 0x8000 -ffreestanding -mno-red-zone -m64 -c "Kernel.cpp" -o %BUILD_PATH%\KernelCPP.o"
 if errorlevel 1 goto error_kernel
 cd ..
 cd ..
-copy /b %BUILD_PATH%\Bootloader.bin"+%BUILD_PATH%\Kernel.bin" %BIN_PATH%\Kernel.flp
+cd build
+x86_64-elf-ld -T"Link.ld"
+if errorlevel 1 goto error_split
+copy /b Bootloader.bin+Kernel.bin %BIN_PATH%\Kernel.flp
 if errorlevel 1 goto error_split
 color F2
 echo Compiling Complete!
