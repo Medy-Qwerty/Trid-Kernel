@@ -1,19 +1,20 @@
 #pragma once
 #include "IO.cpp"
-#define VGA_MEMORY (unsigned char*)0xb8000
+#include "Typedefs.cpp"
+#define VGA_MEMORY (uint_8*)0xb8000
 #define VGA_WIDTH 80
 
-unsigned short CursorPosition;
+uint_16 CursorPosition;
 
-void SetCursorPosition(unsigned short position) {
+void SetCursorPosition(uint_16 position) {
     outb(0x3D4, 0x0F);
-    outb(0x3D5, (unsigned char)(position & 0xFF));
+    outb(0x3D5, (uint_8)(position & 0xFF));
     outb(0x3D4, 0x0E);
-    outb(0x3D5, (unsigned char)((position >> 8) & 0xFF));
+    outb(0x3D5, (uint_8)((position >> 8) & 0xFF));
 
     CursorPosition = position;
 }
 
-unsigned short PositionFromCoords(unsigned char x, unsigned char y) {
+uint_16 PositionFromCoords(uint_8 x, uint_8 y) {
     return y * VGA_WIDTH + x;
 }
