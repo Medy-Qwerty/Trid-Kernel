@@ -7,6 +7,19 @@
 
 uint_16 CursorPosition;
 
+void ClearScreen(uint_64 ClearColor = BACKGROUND_BLUE | FOREGROUND_WHITE)
+{
+    uint_64 value = 0;
+    value += ClearColor << 8;
+    value += ClearColor << 24;
+    value += ClearColor << 40;
+    value += ClearColor << 56;
+    for (uint_64* i = (uint_64*)VGA_MEMORY; i < (uint_64*)(VGA_MEMORY + 4000); i++) {
+        *i = value;
+    }
+    
+}
+
 void SetCursorPosition(uint_16 position) {
     outb(0x3D4, 0x0F);
     outb(0x3D5, (uint_8)(position & 0xFF));
