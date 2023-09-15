@@ -18,3 +18,15 @@ void SetCursorPosition(uint_16 position) {
 uint_16 PositionFromCoords(uint_8 x, uint_8 y) {
     return y * VGA_WIDTH + x;
 }
+
+void PrintString(const char* str) {
+    uint_8* charPtr = (uint_8*)str;
+    uint_16 index = CursorPosition;
+    while (*charPtr != 0)
+    {
+        *(VGA_MEMORY + index * 2) = *charPtr;
+        index++;
+        charPtr++;
+    }
+    SetCursorPosition(index);
+}
