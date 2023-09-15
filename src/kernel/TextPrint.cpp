@@ -24,8 +24,18 @@ void PrintString(const char* str) {
     uint_16 index = CursorPosition;
     while (*charPtr != 0)
     {
-        *(VGA_MEMORY + index * 2) = *charPtr;
-        index++;
+        switch (*charPtr) {
+            case 10:
+                index += VGA_WIDTH;
+                break;
+            case 13:
+                index -= index % VGA_WIDTH;
+                break;
+            default:
+                *(VGA_MEMORY + index * 2) = *charPtr;
+                index++;
+        }
+
         charPtr++;
     }
     SetCursorPosition(index);
