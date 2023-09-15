@@ -20,7 +20,7 @@ uint_16 PositionFromCoords(uint_8 x, uint_8 y) {
     return y * VGA_WIDTH + x;
 }
 
-void PrintString(const char* str) {
+void PrintString(const char* str, uint_8 color = BACKGROUND_BLUE | FOREGROUND_WHITE) {
     uint_8* charPtr = (uint_8*)str;
     uint_16 index = CursorPosition;
     while (*charPtr != 0)
@@ -34,6 +34,7 @@ void PrintString(const char* str) {
                 break;
             default:
                 *(VGA_MEMORY + index * 2) = *charPtr;
+                *(VGA_MEMORY + index * 2 + 1) = color;
                 index++;
         }
 
