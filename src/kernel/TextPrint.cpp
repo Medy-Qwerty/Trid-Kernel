@@ -6,9 +6,10 @@
 #define VGA_WIDTH 80
 
 uint_16 CursorPosition;
-
+uint_8 test;
 void ClearScreen(uint_64 ClearColor = BACKGROUND_BLUE | FOREGROUND_WHITE)
 {
+    test = 0;
     uint_64 value = 0;
     value += ClearColor << 8;
     value += ClearColor << 24;
@@ -16,6 +17,7 @@ void ClearScreen(uint_64 ClearColor = BACKGROUND_BLUE | FOREGROUND_WHITE)
     value += ClearColor << 56;
     for (uint_64* i = (uint_64*)VGA_MEMORY; i < (uint_64*)(VGA_MEMORY + 4000); i++) {
         *i = value;
+        test++;
     }
     
 }
