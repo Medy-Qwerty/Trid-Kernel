@@ -10,7 +10,7 @@ struct IDT64 {
     uint_32 zero;
 };
 
-IDT64 _idt[256];
+extern IDT64 _idt[256];
 
 void InitializeIDT() {
 
