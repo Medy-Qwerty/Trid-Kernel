@@ -19,6 +19,7 @@ echo Compiling Kernel...
 cd kernel
 nasm Kernel.asm -f elf64 -o %BUILD_PATH%\KernelASM.o"
 if errorlevel 1 goto error_kernel
+nasm Binaries.asm -f elf64 -o %BUILD_PATH%\Binaries.o"
 x86_64-elf-gcc -Ttext 0x8000 -ffreestanding -mno-red-zone -m64 -c "Kernel.cpp" -o %BUILD_PATH%\KernelCPP.o"
 if errorlevel 1 goto error_kernel
 cd ..
