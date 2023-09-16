@@ -6,6 +6,7 @@ INPUT
 (
     KernelASM.o
     KernelCPP.o
+    Binaries.o
 )
 
 OUTPUT
