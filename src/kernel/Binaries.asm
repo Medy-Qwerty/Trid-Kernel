@@ -8,3 +8,4 @@
 %endmacro
 
 IncBin Test, "Test.ASCII"
+IncBin Logo, "Logo.ASCII"
