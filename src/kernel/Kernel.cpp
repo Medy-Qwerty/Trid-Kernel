@@ -1,4 +1,5 @@
 #include "TextPrint.cpp"
+#include "IDT.cpp"
 
 extern const char Test[];
 extern const char Logo[];
@@ -17,5 +18,7 @@ extern "C" void _start() {
     PrintString(HexToString("Trid-Kernel"));
     PrintString("\n\r");
     PrintString(Test);
+
+    InitializeIDT();
     return;
 }
