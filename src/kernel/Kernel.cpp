@@ -1,6 +1,6 @@
 #include "TextPrint.cpp"
 
-extern const char BIN_Test[];
+extern const char Test[];
 
 extern "C" void _start() {
     ClearScreen();
@@ -12,5 +12,7 @@ extern "C" void _start() {
     PrintString("\n\r");
     PrintString("String to Hex Function Test: ");
     PrintString(HexToString("Trid-Kernel"));
+    PrintString("\n\r");
+    PrintString(Test);
     return;
 }

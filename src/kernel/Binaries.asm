@@ -7,4 +7,4 @@
     %1_size: dq %1_size - %1
 %endmacro
 
-IncBin Test "Test.ASCII"
+IncBin Test, "Test.ASCII"
