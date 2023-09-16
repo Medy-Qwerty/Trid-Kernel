@@ -3,7 +3,9 @@ idtDescriptor:
     dw 4095
     dq _idt
 
+[extern isr1_handler]
 isr1:
+    call isr1_handler
     iretq
     GLOBAL isr1
 

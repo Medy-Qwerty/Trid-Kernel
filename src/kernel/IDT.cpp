@@ -24,3 +24,7 @@ void InitializeIDT() {
         _idt[t].types_attr = 0x8e;
     }
 }
+
+extern "C" void isr1_handler() {
+    
+}
