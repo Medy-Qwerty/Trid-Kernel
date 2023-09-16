@@ -12,6 +12,7 @@ struct IDT64 {
 
 extern IDT64 _idt[256];
 extern uint_64 isr1;
+extern "C" void LoadIDT();
 
 void InitializeIDT() {
     for (uint_64 t = 0; t < 256; t++) {
@@ -26,9 +27,11 @@ void InitializeIDT() {
 
     outb(0x21, 0xfd);
     outb(0xa1, 0xff);
-    InitIDT();
+    LoadIDT();
 }
 
 extern "C" void isr1_handler() {
-
+    PrintString(HexToString(inb(0x60)));
+    outb(0x20, 0x20);
+    outb(0xa0, 0x20);
 }
