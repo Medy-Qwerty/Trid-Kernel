@@ -23,8 +23,12 @@ void InitializeIDT() {
         _idt[t].selector = 0x08;
         _idt[t].types_attr = 0x8e;
     }
+
+    outb(0x21, 0xfd);
+    outb(0xa1, 0xff);
+    InitIDT();
 }
 
 extern "C" void isr1_handler() {
-    
+
 }
