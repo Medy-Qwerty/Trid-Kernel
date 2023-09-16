@@ -1,4 +1,7 @@
 #include "TextPrint.cpp"
+
+extern const char BIN_Test[];
+
 extern "C" void _start() {
     ClearScreen();
     SetCursorPosition(PositionFromCoords(0, 0));
