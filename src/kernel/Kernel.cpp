@@ -1,4 +1,5 @@
 #include "TextPrint.cpp"
+#include "IDT.cpp"
 
 extern const char Test[];
 extern const char Logo[];
@@ -8,7 +9,7 @@ extern "C" void _start() {
     SetCursorPosition(PositionFromCoords(0, 0));
     PrintString(Logo, BACKGROUND_BLINKINGRED | FOREGROUND_LIGHTCYAN);
     PrintString("\n\r");
-    PrintString("Welcome to Trid-Kernel Alpha v0.1.1\n\r\n\r", BACKGROUND_BLINKINGRED | FOREGROUND_LIGHTCYAN);
+    PrintString("Welcome to Trid-Kernel Alpha v0.1.2\n\r\n\r", BACKGROUND_BLINKINGRED | FOREGROUND_LIGHTCYAN);
 
     PrintString("Hex to String Function Test: ");
     PrintString(HexToString(0x1234abcd));
@@ -17,5 +18,9 @@ extern "C" void _start() {
     PrintString(HexToString("Trid-Kernel"));
     PrintString("\n\r");
     PrintString(Test);
+
+    PrintString("\n\r");
+    PrintString("IDT Test: ");
+    InitializeIDT();
     return;
 }
