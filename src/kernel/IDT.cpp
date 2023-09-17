@@ -38,7 +38,7 @@ void (*MainKeyboardHandler)(uint_8 scanCode, uint_8 chr);
 
 extern "C" void isr1_handler() {
     uint_8 scanCode = inb(0x60);
-    uint_8 chr;
+    uint_8 chr = 0;
 
     if (scanCode < 0x3A) {
         chr = KBSet1::ScanCodeLookupTable[scanCode];

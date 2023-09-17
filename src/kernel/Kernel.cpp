@@ -4,6 +4,12 @@
 extern const char Test[];
 extern const char Logo[];
 
+void KeyboardHandler(uint_8 scanCode, uint_8 chr) {
+    if (chr != 0) {
+        PrintChar(chr);
+    }
+}
+
 extern "C" void _start() {
     ClearScreen();
     SetCursorPosition(PositionFromCoords(0, 0));
@@ -21,6 +27,7 @@ extern "C" void _start() {
 
     PrintString("\n\r");
     PrintString("IDT Test: ");
+    MainKeyboardHandler = KeyboardHandler;
     InitializeIDT();
     return;
 }
