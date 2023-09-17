@@ -33,7 +33,9 @@ void InitializeIDT() {
 
 extern "C" void isr1_handler() {
     uint_8 scanCode = inb(0x60);
-    PrintChar();
+    if (scanCode < 0x3A) {
+        PrintChar(KBSet1::ScanCodeLookupTable[scanCode]);
+    }
     outb(0x20, 0x20);
     outb(0xa0, 0x20);
 }
