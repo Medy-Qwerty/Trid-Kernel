@@ -10,8 +10,11 @@ void KeyboardHandler(uint_8 scanCode, uint_8 chr) {
     }
     else {
         switch (scanCode) {
-            case 1:
-                
+            case 0x8E: // Backspace
+                SetCursorPosition(CursorPosition - 1);
+                PrintChar(' ');
+                SetCursorPosition(CursorPosition - 1);
+                break;
         }
     }
 }
