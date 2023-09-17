@@ -5,10 +5,11 @@ extern const char Test[];
 extern const char Logo[];
 
 bool LeftShiftPressed = false;
+bool RightShiftPressed = false;
 
 void KeyboardHandler(uint_8 scanCode, uint_8 chr) {
     if (chr != 0) {
-        switch (LeftShiftPressed) {
+        switch (LeftShiftPressed | RightShiftPressed) {
             case true:
                 PrintChar(chr - 32);
                 break;
@@ -29,6 +30,12 @@ void KeyboardHandler(uint_8 scanCode, uint_8 chr) {
                 break;
             case 0xAA: // Left Shift Released
                 LeftShiftPressed = false;
+                break;
+            case 0x36: // Right Shift
+                RightShiftPressed = true;
+                break;
+            case 0xB6: // Right Shift Released
+                RightShiftPressed = false;
                 break;
         }
     }
