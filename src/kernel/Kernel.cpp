@@ -6,8 +6,9 @@ extern const char Logo[];
 
 bool LeftShiftPressed = false;
 bool RightShiftPressed = false;
+uint_8 LastScanCode;
 
-void KeyboardHandler(uint_8 scanCode, uint_8 chr) {
+void StandardKeyboardHandler(uint_8 scanCode, uint_8 chr) {
     if (chr != 0) {
         switch (LeftShiftPressed | RightShiftPressed) {
             case true:
@@ -42,6 +43,22 @@ void KeyboardHandler(uint_8 scanCode, uint_8 chr) {
                 break;
         }
     }
+}
+
+void KeyboardHandler0xE0(uint_8 scanCode) {
+    
+}
+
+void KeyboardHandler(uint_8 scanCode, uint_8 chr) {
+    switch (LastScanCode) {
+        case 0xE0:
+            KeyboardHandler0xE0(scanCode);
+            break;
+        default:
+            StandardKeyboardHandler(scanCode, chr);
+    }
+
+    LastScanCode = scanCode;
 }
 
 extern "C" void _start() {
