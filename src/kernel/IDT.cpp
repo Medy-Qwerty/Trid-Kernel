@@ -31,6 +31,7 @@ void InitializeIDT() {
 }
 
 extern "C" void isr1_handler() {
+    uint_8 scanCode = inb(0x60);
     PrintString(HexToString(inb(0x60)));
     outb(0x20, 0x20);
     outb(0xa0, 0x20);
