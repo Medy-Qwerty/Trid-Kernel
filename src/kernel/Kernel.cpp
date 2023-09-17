@@ -37,6 +37,9 @@ void KeyboardHandler(uint_8 scanCode, uint_8 chr) {
             case 0xB6: // Right Shift Released
                 RightShiftPressed = false;
                 break;
+            case 0x9C: // Enter
+                PrintString("\n\r");
+                break;
         }
     }
 }
