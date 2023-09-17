@@ -46,7 +46,16 @@ void StandardKeyboardHandler(uint_8 scanCode, uint_8 chr) {
 }
 
 void KeyboardHandler0xE0(uint_8 scanCode) {
-    
+    switch (scanCode) {
+        case 0x50:
+            SetCursorPosition(CursorPosition + VGA_WIDTH);
+            break;
+        case 0x48:
+            SetCursorPosition(CursorPosition - VGA_WIDTH);
+            break;
+        default:
+            break;
+    }
 }
 
 void KeyboardHandler(uint_8 scanCode, uint_8 chr) {
