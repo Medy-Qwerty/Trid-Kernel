@@ -8,6 +8,12 @@ void KeyboardHandler(uint_8 scanCode, uint_8 chr) {
     if (chr != 0) {
         PrintChar(chr);
     }
+    else {
+        switch (scanCode) {
+            case 1:
+                
+        }
+    }
 }
 
 extern "C" void _start() {
