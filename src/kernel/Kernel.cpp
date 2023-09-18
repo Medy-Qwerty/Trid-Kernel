@@ -21,6 +21,12 @@ extern "C" void _start() {
     PrintString(Test);
 
     PrintString("\n\r");
+    PrintString("Integer to String Function Test: ");
+    PrintString(IntegerToString(123456789));
+    PrintString(" : ");
+    PrintString(IntegerToString(-123456789));
+
+    PrintString("\n\r");
     PrintString("IDT Test: ");
     MainKeyboardHandler = KeyboardHandler;
     InitializeIDT();
