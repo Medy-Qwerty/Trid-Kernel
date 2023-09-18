@@ -127,6 +127,19 @@ const char* FloatToString(float value, uint_8 decimalPlaces) {
         intPtr++;
         floatPtr++;
     }
-    
+    *floatPtr = '.';
+    floatPtr++;
+
+    float newValue = value - (int)value;
+
+    for (uint_8 i = 0; i < decimalPlaces; i++) {
+        newValue *= 10;
+        *floatPtr = (int)newValue + 48;
+        newValue -= (int)newValue;
+        floatPtr++;
+    }
+
+    *floatPtr = 0;
+
     return floatToStringOutput;
 }
