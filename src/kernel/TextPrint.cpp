@@ -94,5 +94,18 @@ const char* IntegerToString(T value) {
         sizeTester /= 10;
         size++;
     }
+
+    uint_8 index;
+    uint_64 newValue = (uint_64)value;
+    while (newValue / 10 > 0) {
+        uint_8 remainder = newValue % 10;
+        newValue /= 10;
+        integerToStringOutput[size - index] = remainder + 48;
+        index++;
+    }
+    uint_8 remainder = newValue % 10;
+    integerToStringOutput[size - index] = remainder + 48;
+    integerToStringOutput[size + 1] = 0;
+    return integerToStringOutput;
     
 }
