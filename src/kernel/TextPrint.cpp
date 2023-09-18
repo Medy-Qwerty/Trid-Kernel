@@ -84,3 +84,9 @@ const char* HexToString(T value) {
     hexToStringOutput[size + 1] = 0;
     return hexToStringOutput;
 }
+
+char integerToStringOutput[128];
+template<typename T>
+const char* IntegerToString(T value) {
+    
+}
