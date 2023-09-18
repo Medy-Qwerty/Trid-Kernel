@@ -27,6 +27,10 @@ extern "C" void _start() {
     PrintString(IntegerToString(-123456789));
 
     PrintString("\n\r");
+    float testFloat = 3.7f;
+    PrintString(IntegerToString((int)testFloat));
+
+    PrintString("\n\r");
     PrintString("IDT Test: ");
     MainKeyboardHandler = KeyboardHandler;
     InitializeIDT();
