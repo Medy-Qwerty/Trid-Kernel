@@ -10,7 +10,7 @@ extern "C" void _start() {
     SetCursorPosition(PositionFromCoords(0, 0));
     PrintString(Logo, BACKGROUND_BLINKINGGREEN | FOREGROUND_LIGHTCYAN);
     PrintString("\n\r");
-    PrintString("Welcome to Trid-Kernel Beta v0.1.5\n\r\n\r", BACKGROUND_BLINKINGGREEN | FOREGROUND_LIGHTCYAN);
+    PrintString("Welcome to Trid-Kernel Beta v0.1.6\n\r\n\r", BACKGROUND_BLINKINGGREEN | FOREGROUND_LIGHTCYAN);
 
     PrintString("Hex to String Function Test: ");
     PrintString(HexToString(0x1234abcd));
@@ -25,6 +25,14 @@ extern "C" void _start() {
     PrintString(IntegerToString(123456789));
     PrintString(" : ");
     PrintString(IntegerToString(-123456789));
+
+    PrintString("\n\r");
+    float testFloat = 3.7f;
+    float testFloatNegative = -3.7f;
+    PrintString("Float to String Function Test: ");
+    PrintString(FloatToString(testFloat, 2));
+    PrintString(" : ");
+    PrintString(FloatToString(testFloatNegative, 2));
 
     PrintString("\n\r");
     PrintString("IDT Test: ");
