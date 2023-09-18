@@ -114,6 +114,19 @@ const char* IntegerToString(T value) {
     uint_8 remainder = newValue % 10;
     integerToStringOutput[isNegative + size - index] = remainder + 48;
     integerToStringOutput[isNegative + size + 1] = 0;
-    return integerToStringOutput;
+    return integerToStringOutput;   
+}
+
+char floatToStringOutput[128];
+const char* FloatToString(float value, uint_8 decimalPlaces) {
+    char* intPtr = (char*)IntegerToString((int)value);
+    char* floatPtr = floatToStringOutput;
+
+    while (*intPtr != 0) {
+        *floatPtr = *intPtr;
+        intPtr++;
+        floatPtr++;
+    }
     
+    return floatToStringOutput;
 }

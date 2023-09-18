@@ -28,7 +28,11 @@ extern "C" void _start() {
 
     PrintString("\n\r");
     float testFloat = 3.7f;
-    PrintString(IntegerToString((int)testFloat));
+    float testFloatNegative = -3.7f;
+    PrintString("Float to String Function Test: ");
+    PrintString(FloatToString(testFloat, 2));
+    PrintString(" : ");
+    PrintString(FloatToString(testFloatNegative, 2));
 
     PrintString("\n\r");
     PrintString("IDT Test: ");
