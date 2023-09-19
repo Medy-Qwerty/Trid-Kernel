@@ -1,0 +1,2 @@
+MemoryReigonCount:
+    db 0
