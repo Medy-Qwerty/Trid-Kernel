@@ -1,6 +1,6 @@
-MemoryReigonCount:
+MemoryRegionCount:
     db 0
-    GLOBAL MemoryReigonCount
+    GLOBAL MemoryRegionCount
 
 DetectMemory:
     mov ax, 0
@@ -18,7 +18,7 @@ DetectMemory:
         je .finished
 
         add di, 24
-        inc byte [MemoryReigonCount]
+        inc byte [MemoryRegionCount]
         jmp .repeat
 
     .finished:

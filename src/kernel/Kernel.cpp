@@ -36,6 +36,10 @@ extern "C" void _start() {
     PrintString(FloatToString(testFloatNegative, 2));
 
     PrintString("\n\r");
+    PrintString("Memory Entry Count: ");
+    PrintString(IntegerToString(MemoryRegionCount));
+
+    PrintString("\n\r");
     PrintString("IDT Test: ");
     MainKeyboardHandler = KeyboardHandler;
     InitializeIDT();
