@@ -39,7 +39,9 @@ extern "C" void _start() {
     PrintString("Memory Entry Count: ");
     PrintString(IntegerToString(MemoryRegionCount), BACKGROUND_BLUE | FOREGROUND_RED);
     PrintString("\n\r");
-    PrintString("Memory Regions: \n\r");
+    PrintString("Memory Regions: \n");
+    MemoryMapEntry** usableMemoryMaps = GetUsableMemoryRegions();
+
     for (uint_8 i = 0; i < MemoryRegionCount; i++) {
         MemoryMapEntry* memMap = (MemoryMapEntry*)0x5000;
         memMap += i;
