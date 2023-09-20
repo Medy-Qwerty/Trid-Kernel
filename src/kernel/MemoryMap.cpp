@@ -10,6 +10,8 @@ struct MemoryMapEntry {
 
 extern uint_8 MemoryRegionCount;
 
+MemoryMapEntry* UsableMemoryRegions[10];
+
 void PrintMemoryMap(MemoryMapEntry* memoryMap, uint_16 position) {
     SetCursorPosition(position);
 
