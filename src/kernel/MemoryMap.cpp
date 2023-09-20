@@ -13,12 +13,12 @@ extern uint_8 MemoryRegionCount;
 void PrintMemoryMap(MemoryMapEntry* memoryMap, uint_16 position) {
     SetCursorPosition(position);
 
-    PrintString("Memory Base: "); PrintString(IntegerToString(memoryMap->BaseAddress));
+    PrintString("Memory Base: ", BACKGROUND_BLACK | FOREGROUND_CYAN); PrintString(IntegerToString(memoryMap->BaseAddress), BACKGROUND_BLACK | FOREGROUND_CYAN);
     SetCursorPosition(position + 80);
-    PrintString("Region Length: "); PrintString(IntegerToString(memoryMap->RegionLength));
+    PrintString("Region Length: ", BACKGROUND_BLACK | FOREGROUND_CYAN); PrintString(IntegerToString(memoryMap->RegionLength), BACKGROUND_BLACK | FOREGROUND_CYAN);
     SetCursorPosition(position + 160);
-    PrintString("Memory Type: "); PrintString(IntegerToString(memoryMap->RegionType));
+    PrintString("Memory Type: ", BACKGROUND_BLACK | FOREGROUND_CYAN); PrintString(IntegerToString(memoryMap->RegionType), BACKGROUND_BLACK | FOREGROUND_CYAN);
     SetCursorPosition(position + 240);
-    PrintString("Memory Attributes: "); PrintString(IntegerToString(memoryMap->ExtendedAttributes));
-    SetCursorPosition(position + 320);
+    PrintString("Memory Attributes: ", BACKGROUND_BLACK | FOREGROUND_CYAN); PrintString(IntegerToString(memoryMap->ExtendedAttributes), BACKGROUND_BLACK | FOREGROUND_CYAN);
+    SetCursorPosition(position + 400);
 }
