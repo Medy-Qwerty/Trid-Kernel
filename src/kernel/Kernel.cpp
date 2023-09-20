@@ -38,15 +38,14 @@ extern "C" void _start() {
     PrintString("\n\r");
     PrintString("Memory Entry Count: ");
     PrintString(IntegerToString(MemoryRegionCount), BACKGROUND_BLUE | FOREGROUND_RED);
-    PrintString("\n\r");
-    PrintString("Memory Regions: \n");
-    MemoryMapEntry** usableMemoryMaps = GetUsableMemoryRegions();
+    //PrintString("\n\r");
+    //PrintString("Memory Regions: \n");
+    //MemoryMapEntry** usableMemoryMaps = GetUsableMemoryRegions();
 
-    for (uint_8 i = 0; i < MemoryRegionCount; i++) {
-        MemoryMapEntry* memMap = (MemoryMapEntry*)0x5000;
-        memMap += i;
-        PrintMemoryMap(memMap, CursorPosition);
-    }
+    //for (uint_8 i = 0; i < UsableMemoryRegionCount; i++) {
+        //MemoryMapEntry* memMap = usableMemoryMaps[i];
+        //PrintMemoryMap(memMap, CursorPosition);
+   //}
 
     PrintString("\n\r");
     PrintString("IDT Test: ");
