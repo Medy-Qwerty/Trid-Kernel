@@ -1,6 +1,6 @@
 #pragma once
 #include "Typedefs.h"
-#include "KBScanCodeSet1.cpp"
+#include "KBScanCodeSet1.h"
 #include "IO.cpp"
 #include "TextPrint.cpp"
 
