@@ -1,5 +1,5 @@
 #pragma once
-#include "Typedefs.cpp"
+#include "Typedefs.h"
 #include "KBScanCodeSet1.cpp"
 #include "IO.cpp"
 #include "TextPrint.cpp"

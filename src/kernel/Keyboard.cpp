@@ -1,5 +1,5 @@
 #pragma once
-#include "Typedefs.cpp"
+#include "Typedefs.h"
 #include "TextPrint.cpp"
 
 bool LeftShiftPressed = false;

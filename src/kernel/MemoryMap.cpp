@@ -1,5 +1,5 @@
 #pragma once
-#include "Typedefs.cpp"
+#include "Typedefs.h"
 
 struct MemoryMapEntry {
     uint_64 BaseAddress;
