@@ -2,7 +2,7 @@
 #include "Typedefs.h"
 #include "KBScanCodeSet1.h"
 #include "IO.h"
-#include "TextPrint.cpp"
+#include "TextPrint.h"
 
 struct IDT64 {
     uint_16 offset_low;

@@ -1,13 +1,7 @@
 #pragma once
-#include "IO.h"
-#include "Typedefs.h"
-#include "TextModeColorCodes.h"
-#define VGA_MEMORY (uint_8*)0xb8000
-#define VGA_WIDTH 80
+#include "TextPrint.h"
 
-uint_16 CursorPosition;
-uint_8 test;
-void ClearScreen(uint_64 ClearColor = BACKGROUND_BLUE | FOREGROUND_WHITE)
+void ClearScreen(uint_64 ClearColor)
 {
     test = 0;
     uint_64 value = 0;
@@ -35,7 +29,7 @@ uint_16 PositionFromCoords(uint_8 x, uint_8 y) {
     return y * VGA_WIDTH + x;
 }
 
-void PrintString(const char* str, uint_8 color = BACKGROUND_BLUE | FOREGROUND_WHITE) {
+void PrintString(const char* str, uint_8 color) {
     uint_8* charPtr = (uint_8*)str;
     uint_16 index = CursorPosition;
     while (*charPtr != 0)
@@ -58,7 +52,7 @@ void PrintString(const char* str, uint_8 color = BACKGROUND_BLUE | FOREGROUND_WH
     SetCursorPosition(index);
 }
 
-void PrintChar(char chr, uint_8 color = BACKGROUND_BLUE | FOREGROUND_WHITE)
+void PrintChar(char chr, uint_8 color)
 {
     *(VGA_MEMORY + CursorPosition * 2) = chr;
     *(VGA_MEMORY + CursorPosition * 2 + 1) = color;

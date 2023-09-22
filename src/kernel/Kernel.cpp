@@ -1,4 +1,4 @@
-#include "TextPrint.cpp"
+#include "TextPrint.h"
 #include "IDT.h"
 #include "Keyboard.h"
 #include "MemoryMap.h"
