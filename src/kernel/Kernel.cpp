@@ -1,7 +1,7 @@
-#include "TextPrint.cpp"
-#include "IDT.cpp"
-#include "Keyboard.cpp"
-#include "MemoryMap.cpp"
+#include "TextPrint.h"
+#include "IDT.h"
+#include "Keyboard.h"
+#include "MemoryMap.h"
 
 extern const char Test[];
 extern const char Logo[];
@@ -11,13 +11,13 @@ extern "C" void _start() {
     SetCursorPosition(PositionFromCoords(0, 0));
     PrintString(Logo, BACKGROUND_BLINKINGGREEN | FOREGROUND_LIGHTCYAN);
     PrintString("\n\r");
-    PrintString("Welcome to Trid-Kernel Beta v0.1.8\n\r\n\r", BACKGROUND_BLINKINGGREEN | FOREGROUND_LIGHTCYAN);
+    PrintString("Welcome to Trid-Kernel Beta v0.1.9\n\r\n\r", BACKGROUND_BLINKINGGREEN | FOREGROUND_LIGHTCYAN);
 
     PrintString("Hex to String Function Test: ");
-    PrintString(HexToString(0x1234abcd), BACKGROUND_BLUE | FOREGROUND_RED);
+    //PrintString(HexToString(0x1234abcd), BACKGROUND_BLUE | FOREGROUND_RED);
     PrintString("\n\r");
     PrintString("String to Hex Function Test: ");
-    PrintString(HexToString("Trid-Kernel"), BACKGROUND_BLUE | FOREGROUND_RED);
+    //PrintString(HexToString("Trid-Kernel"), BACKGROUND_BLUE | FOREGROUND_RED);
     PrintString("\n\r");
     PrintString(Test);
 

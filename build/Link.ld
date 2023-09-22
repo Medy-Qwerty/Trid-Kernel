@@ -6,6 +6,11 @@ INPUT
 (
     KernelASM.o
     KernelCPP.o
+    IDT.o
+    IO.o
+    Keyboard.o
+    MemoryMap.o
+    TextPrint.o
     Binaries.o
 )
 

@@ -22,6 +22,16 @@ if errorlevel 1 goto error_kernel
 nasm Binaries.asm -f elf64 -o %BUILD_PATH%\Binaries.o"
 x86_64-elf-gcc -Ttext 0x8000 -ffreestanding -mno-red-zone -m64 -c "Kernel.cpp" -o %BUILD_PATH%\KernelCPP.o"
 if errorlevel 1 goto error_kernel
+x86_64-elf-gcc -Ttext 0x8000 -ffreestanding -mno-red-zone -m64 -c "IDT.cpp" -o %BUILD_PATH%\IDT.o"
+if errorlevel 1 goto error_kernel
+x86_64-elf-gcc -Ttext 0x8000 -ffreestanding -mno-red-zone -m64 -c "IO.cpp" -o %BUILD_PATH%\IO.o"
+if errorlevel 1 goto error_kernel
+x86_64-elf-gcc -Ttext 0x8000 -ffreestanding -mno-red-zone -m64 -c "Keyboard.cpp" -o %BUILD_PATH%\Keyboard.o"
+if errorlevel 1 goto error_kernel
+x86_64-elf-gcc -Ttext 0x8000 -ffreestanding -mno-red-zone -m64 -c "MemoryMap.cpp" -o %BUILD_PATH%\MemoryMap.o"
+if errorlevel 1 goto error_kernel
+x86_64-elf-gcc -Ttext 0x8000 -ffreestanding -mno-red-zone -m64 -c "TextPrint.cpp" -o %BUILD_PATH%\TextPrint.o"
+if errorlevel 1 goto error_kernel
 cd ..
 cd ..
 cd build
