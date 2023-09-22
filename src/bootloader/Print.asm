@@ -17,4 +17,4 @@ PrintFunction:
         ret
 
 WelcomeString:
-    db 'T-LDR 4.0',0
+    db 'T-LDR 5.0',0

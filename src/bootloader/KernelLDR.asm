@@ -3,7 +3,7 @@ KERNEL_SPACE equ 0x8000
 ReadKernel:
     mov ah, 0x02
     mov bx, KERNEL_SPACE
-    mov al, 32
+    mov al, 60
     mov dl, [BOOT_KERNEL]
     mov ch, 0x00
     mov dh, 0x00
