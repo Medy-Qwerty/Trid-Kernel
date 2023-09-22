@@ -1,6 +1,6 @@
 #include "TextPrint.cpp"
 #include "IDT.h"
-#include "Keyboard.cpp"
+#include "Keyboard.h"
 #include "MemoryMap.cpp"
 
 extern const char Test[];

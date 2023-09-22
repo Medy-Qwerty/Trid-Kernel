@@ -8,6 +8,7 @@ INPUT
     KernelCPP.o
     IDT.o
     IO.o
+    Keyboard.o
     Binaries.o
 )
 
