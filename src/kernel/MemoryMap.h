@@ -10,7 +10,7 @@ struct MemoryMapEntry {
 
 
 extern uint_8 MemoryRegionCount;
-uint_8 UsableMemoryRegionCount;
+extern uint_8 UsableMemoryRegionCount;
 
 void PrintMemoryMap(MemoryMapEntry* memoryMap, uint_16 position);
 MemoryMapEntry** GetUsableMemoryRegions();

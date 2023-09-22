@@ -3,9 +3,9 @@
 #include "TextPrint.h"
 
 
-bool LeftShiftPressed = false;
-bool RightShiftPressed = false;
-uint_8 LastScanCode;
+extern bool LeftShiftPressed;
+extern bool RightShiftPressed;
+extern uint_8 LastScanCode;
 
 
 void StandardKeyboardHandler(uint_8 scanCode, uint_8 chr);

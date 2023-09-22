@@ -1,6 +1,7 @@
 #pragma once
 #include "MemoryMap.h"
 
+uint_8 UsableMemoryRegionCount;
 MemoryMapEntry* UsableMemoryRegions[10];
 
 void PrintMemoryMap(MemoryMapEntry* memoryMap, uint_16 position) {

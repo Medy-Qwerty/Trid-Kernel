@@ -5,7 +5,7 @@
 #define VGA_MEMORY (uint_8*)0xb8000
 #define VGA_WIDTH 80
 
-uint_16 CursorPosition;
+extern uint_16 CursorPosition;
 uint_8 test;
 void ClearScreen(uint_64 ClearColor = BACKGROUND_BLUE | FOREGROUND_WHITE);
 void SetCursorPosition(uint_16 position);
