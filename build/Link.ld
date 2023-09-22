@@ -7,6 +7,7 @@ INPUT
     KernelASM.o
     KernelCPP.o
     IDT.o
+    IO.o
     Binaries.o
 )
 

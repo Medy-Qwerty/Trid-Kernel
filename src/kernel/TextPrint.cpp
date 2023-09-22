@@ -1,5 +1,5 @@
 #pragma once
-#include "IO.cpp"
+#include "IO.h"
 #include "Typedefs.h"
 #include "TextModeColorCodes.h"
 #define VGA_MEMORY (uint_8*)0xb8000

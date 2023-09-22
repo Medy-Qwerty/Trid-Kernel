@@ -1,7 +1,7 @@
 #pragma once
 #include "Typedefs.h"
 #include "KBScanCodeSet1.h"
-#include "IO.cpp"
+#include "IO.h"
 #include "TextPrint.cpp"
 
 struct IDT64 {
