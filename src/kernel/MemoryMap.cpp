@@ -1,15 +1,5 @@
 #pragma once
-#include "Typedefs.h"
-
-struct MemoryMapEntry {
-    uint_64 BaseAddress;
-    uint_64 RegionLength;
-    uint_32 RegionType;
-    uint_32 ExtendedAttributes;
-};
-
-extern uint_8 MemoryRegionCount;
-uint_8 UsableMemoryRegionCount;
+#include "MemoryMap.h"
 
 MemoryMapEntry* UsableMemoryRegions[10];
 

@@ -1,7 +1,7 @@
 #include "TextPrint.cpp"
 #include "IDT.h"
 #include "Keyboard.h"
-#include "MemoryMap.cpp"
+#include "MemoryMap.h"
 
 extern const char Test[];
 extern const char Logo[];

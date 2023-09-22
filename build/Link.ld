@@ -9,6 +9,7 @@ INPUT
     IDT.o
     IO.o
     Keyboard.o
+    MemoryMap.o
     Binaries.o
 )
 
