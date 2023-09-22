@@ -81,6 +81,15 @@ const char* HexToString(T value) {
     return hexToStringOutput;
 }
 
+const char* HexToString(uint_8 value) { return HexToString<uint_8>(value); }
+const char* HexToString(uint_16 value) { return HexToString<uint_16>(value); }
+const char* HexToString(uint_32 value) { return HexToString<uint_32>(value); }
+const char* HexToString(uint_64 value) { return HexToString<uint_64>(value); }
+const char* HexToString(char value) { return HexToString<char>(value); }
+const char* HexToString(short value) { return HexToString<short>(value); }
+const char* HexToString(int value) { return HexToString<int>(value); }
+const char* HexToString(long long value) { return HexToString<long long>(value); }
+
 char integerToStringOutput[128];
 template<typename T>
 const char* IntegerToString(T value) {
@@ -112,6 +121,15 @@ const char* IntegerToString(T value) {
     integerToStringOutput[isNegative + size + 1] = 0;
     return integerToStringOutput;   
 }
+
+const char* IntegerToString(uint_8 value) { return IntegerToString<uint_8>(value); }
+const char* IntegerToString(uint_16 value) { return IntegerToString<uint_16>(value); }
+const char* IntegerToString(uint_32 value) { return IntegerToString<uint_32>(value); }
+const char* IntegerToString(uint_64 value) { return IntegerToString<uint_64>(value); }
+const char* IntegerToString(char value) { return IntegerToString<char>(value); }
+const char* IntegerToString(short value) { return IntegerToString<short>(value); }
+const char* IntegerToString(int value) { return IntegerToString<int>(value); }
+const char* IntegerToString(long long value) { return IntegerToString<long long>(value); }
 
 char floatToStringOutput[128];
 const char* FloatToString(float value, uint_8 decimalPlaces) {
