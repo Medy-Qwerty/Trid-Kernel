@@ -4,6 +4,7 @@
 extern IDT64 _idt[256];
 extern uint_64 isr1;
 extern "C" void LoadIDT();
+void (*MainKeyboardHandler)(uint_8 scanCode, uint_8 chr);
 
 void InitializeIDT() {
     _idt[1].zero = 0;

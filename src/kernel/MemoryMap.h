@@ -1,5 +1,6 @@
 #pragma once
 #include "Typedefs.h"
+#include "TextPrint.h"
 
 struct MemoryMapEntry {
     uint_64 BaseAddress;
