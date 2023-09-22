@@ -1,5 +1,5 @@
 #include "TextPrint.cpp"
-#include "IDT.cpp"
+#include "IDT.h"
 #include "Keyboard.cpp"
 #include "MemoryMap.cpp"
 

@@ -6,6 +6,7 @@ INPUT
 (
     KernelASM.o
     KernelCPP.o
+    IDT.o
     Binaries.o
 )
 
