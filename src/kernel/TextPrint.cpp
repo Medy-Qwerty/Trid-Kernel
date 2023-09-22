@@ -1,7 +1,7 @@
-#pragma once
 #include "TextPrint.h"
 
 uint_16 CursorPosition;
+uint_8 test;
 
 void ClearScreen(uint_64 ClearColor)
 {

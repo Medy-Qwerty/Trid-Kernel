@@ -1,4 +1,3 @@
-#pragma once
 #include "MemoryMap.h"
 
 uint_8 UsableMemoryRegionCount;

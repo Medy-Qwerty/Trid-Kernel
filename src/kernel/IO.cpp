@@ -1,4 +1,3 @@
-#pragma once
 #include "IO.h"
 
 void outb(unsigned short port, unsigned char val) {

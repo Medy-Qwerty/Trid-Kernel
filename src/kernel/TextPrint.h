@@ -6,7 +6,7 @@
 #define VGA_WIDTH 80
 
 extern uint_16 CursorPosition;
-uint_8 test;
+extern uint_8 test;
 void ClearScreen(uint_64 ClearColor = BACKGROUND_BLUE | FOREGROUND_WHITE);
 void SetCursorPosition(uint_16 position);
 uint_16 PositionFromCoords(uint_8 x, uint_8 y);
@@ -14,7 +14,7 @@ void PrintString(const char* str, uint_8 color = BACKGROUND_BLUE | FOREGROUND_WH
 void PrintChar(char chr, uint_8 color = BACKGROUND_BLUE | FOREGROUND_WHITE);
 const char* FloatToString(float value, uint_8 decimalPlaces);
 
-const char* HexToString(uint_8 value);
+const char* HexToString(uint_8 value);  
 const char* HexToString(uint_16 value);
 const char* HexToString(uint_32 value);
 const char* HexToString(uint_64 value);

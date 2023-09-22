@@ -1,0 +1,14 @@
+bin/Kernel.flp
+
+bochsrc.bxrc
+
+build/Binaries.o
+build/Bootloader.bin
+build/IDT.o
+build/IO.o
+build/Kernel.bin
+build/KernelASM.o
+build/KernelCPP.o
+build/Keyboard.o
+build/MemoryMap.o
+build/TextPrint.o
