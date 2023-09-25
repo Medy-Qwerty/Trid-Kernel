@@ -16,4 +16,13 @@ void* malloc(uint_64 size) {
     uint_64 remainder = size % 8;
     size -= remainder;
     if (remainder != 0) size += 8;
+
+    MemorySegmentHeader* currentMemorySegment = FirstFreeMemorySegment;
+
+    while (true) {
+        if (currentMemorySegment->MemoryLength >= size) {
+            
+        }
+    }
+    
 }
