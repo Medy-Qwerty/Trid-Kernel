@@ -51,6 +51,7 @@ void* malloc(uint_64 size) {
         {
             return 0; // No Memory Remaining
         }
+        currentMemorySegment = currentMemorySegment->NextFreeSegment;
     }
-    
+    return 0; // We Should Never Get There
 }
