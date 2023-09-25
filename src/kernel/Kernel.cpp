@@ -10,7 +10,6 @@ extern const char Logo[];
 extern "C" void _start() {
     ClearScreen();
     SetCursorPosition(PositionFromCoords(0, 0));
-    InitializeHeap(0x100000, 0x100000);
     PrintString(Logo, BACKGROUND_BLINKINGGREEN | FOREGROUND_LIGHTCYAN);
     PrintString("\n\r");
     PrintString("Welcome to Trid-Kernel Beta v0.2.0\n\r\n\r", BACKGROUND_BLINKINGGREEN | FOREGROUND_LIGHTCYAN);
@@ -48,6 +47,8 @@ extern "C" void _start() {
         //MemoryMapEntry* memMap = usableMemoryMaps[i];
         //PrintMemoryMap(memMap, CursorPosition);
    //}
+
+    InitializeHeap(0x100000, 0x100000);
 
     PrintString("\n\r");
     PrintString("IDT Test: ");

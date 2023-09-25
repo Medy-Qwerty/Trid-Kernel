@@ -21,7 +21,7 @@ void* malloc(uint_64 size) {
 
     while (true) {
         if (currentMemorySegment->MemoryLength >= size) {
-            
+            return currentMemorySegment + 1;
         }
     }
     
