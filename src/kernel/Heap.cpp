@@ -21,8 +21,40 @@ void* malloc(uint_64 size) {
 
     while (true) {
         if (currentMemorySegment->MemoryLength >= size) {
+            if (currentMemorySegment->MemoryLength > size + sizeof(MemorySegmentHeader)) {
+                MemorySegmentHeader* newSegmentHeader = (MemorySegmentHeader*)((uint_64)currentMemorySegment + sizeof(MemorySegmentHeader) + size);
+
+                newSegmentHeader->Free = true;
+                newSegmentHeader->MemoryLength = ((uint_64)currentMemorySegment->MemoryLength) - (sizeof(MemorySegmentHeader) + size);
+                newSegmentHeader->NextFreeSegment = currentMemorySegment->NextFreeSegment;
+                newSegmentHeader->NextSegment = currentMemorySegment->NextSegment;
+                newSegmentHeader->PreviousSegment = currentMemorySegment;
+                newSegmentHeader->PreviousFreeSegment = currentMemorySegment->PreviousFreeSegment;
+
+                currentMemorySegment->NextFreeSegment = newSegmentHeader;
+                currentMemorySegment->NextSegment = newSegmentHeader;
+                currentMemorySegment->MemoryLength = size;
+            }
+
+            if (currentMemorySegment == FirstFreeMemorySegment) {
+                FirstFreeMemorySegment = currentMemorySegment->NextFreeSegment;
+            }
+
+            currentMemorySegment->Free = false;
+
+            if (currentMemorySegment->PreviousFreeSegment != 0) currentMemorySegment->PreviousFreeSegment->NextFreeSegment = currentMemorySegment->NextFreeSegment;
+            if (currentMemorySegment->NextFreeSegment != 0) currentMemorySegment->NextFreeSegment->PreviousFreeSegment = currentMemorySegment->PreviousFreeSegment;
+            if (currentMemorySegment->PreviousSegment != 0) currentMemorySegment->PreviousSegment->NextFreeSegment = currentMemorySegment->NextFreeSegment;
+            if (currentMemorySegment->NextSegment != 0) currentMemorySegment->NextSegment->PreviousFreeSegment = currentMemorySegment->PreviousFreeSegment;
+
             return currentMemorySegment + 1;
         }
+
+        if (currentMemorySegment->NextFreeSegment == 0)
+        {
+            return 0; // No Memory Remaining
+        }
+        currentMemorySegment = currentMemorySegment->NextFreeSegment;
     }
-    
+    return 0; // We Should Never Get There
 }

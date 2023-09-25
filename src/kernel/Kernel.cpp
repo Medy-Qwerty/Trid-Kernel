@@ -12,7 +12,7 @@ extern "C" void _start() {
     SetCursorPosition(PositionFromCoords(0, 0));
     PrintString(Logo, BACKGROUND_BLINKINGGREEN | FOREGROUND_LIGHTCYAN);
     PrintString("\n\r");
-    PrintString("Welcome to Trid-Kernel Beta v0.2.0\n\r\n\r", BACKGROUND_BLINKINGGREEN | FOREGROUND_LIGHTCYAN);
+    PrintString("Welcome to Trid-Kernel Beta v0.2.1\n\r\n\r", BACKGROUND_BLINKINGGREEN | FOREGROUND_LIGHTCYAN);
 
     PrintString("Hex to String Function Test: ");
     //PrintString(HexToString(0x1234abcd), BACKGROUND_BLUE | FOREGROUND_RED);
@@ -52,7 +52,7 @@ extern "C" void _start() {
     PrintString("Testing Dynamic Memory: ");
     PrintString("Malloc: ");
     InitializeHeap(0x100000, 0x100000);
-    void* TestMallocMemoryAddress = malloc(60);
+    void* TestMallocMemoryAddress = malloc(0x10);
     PrintString(HexToString((uint_64)TestMallocMemoryAddress), BACKGROUND_BLUE | FOREGROUND_RED);
 
     PrintString("\n\r");
