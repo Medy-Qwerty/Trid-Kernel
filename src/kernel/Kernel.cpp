@@ -52,7 +52,7 @@ extern "C" void _start() {
     PrintString("Testing Dynamic Memory: ");
     PrintString("Malloc: ");
     InitializeHeap(0x100000, 0x100000);
-    void* TestMallocMemoryAddress = malloc(60);
+    void* TestMallocMemoryAddress = malloc(0x10);
     PrintString(HexToString((uint_64)TestMallocMemoryAddress), BACKGROUND_BLUE | FOREGROUND_RED);
 
     PrintString("\n\r");
