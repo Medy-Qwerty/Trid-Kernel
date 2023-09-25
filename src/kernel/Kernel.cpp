@@ -48,7 +48,12 @@ extern "C" void _start() {
         //PrintMemoryMap(memMap, CursorPosition);
    //}
 
+    PrintString("\n\r");
+    PrintString("Testing Dynamic Memory: ");
+    PrintString("Malloc: ");
     InitializeHeap(0x100000, 0x100000);
+    void* TestMallocMemoryAddress = malloc(60);
+    PrintString(HexToString((uint_64)TestMallocMemoryAddress), BACKGROUND_BLUE | FOREGROUND_RED);
 
     PrintString("\n\r");
     PrintString("IDT Test: ");
