@@ -11,3 +11,7 @@ void InitializeHeap(uint_64 heapAddress, uint_64 heapLength) {
     FirstFreeMemorySegment->PreviousFreeSegment = 0;
     FirstFreeMemorySegment->Free = true;
 }
+
+void* malloc(uint_64 size) {
+    
+}
