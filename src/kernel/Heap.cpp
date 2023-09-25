@@ -46,6 +46,11 @@ void* malloc(uint_64 size) {
 
             return currentMemorySegment + 1;
         }
+
+        if (currentMemorySegment->NextFreeSegment == 0)
+        {
+            return 0; // No Memory Remaining
+        }
     }
     
 }
