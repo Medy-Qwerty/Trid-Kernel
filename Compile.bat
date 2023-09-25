@@ -32,6 +32,8 @@ x86_64-elf-gcc -Ttext 0x8000 -ffreestanding -mno-red-zone -m64 -c "MemoryMap.cpp
 if errorlevel 1 goto error_kernel
 x86_64-elf-gcc -Ttext 0x8000 -ffreestanding -mno-red-zone -m64 -c "TextPrint.cpp" -o %BUILD_PATH%\TextPrint.o"
 if errorlevel 1 goto error_kernel
+x86_64-elf-gcc -Ttext 0x8000 -ffreestanding -mno-red-zone -m64 -c "Heap.cpp" -o %BUILD_PATH%\Heap.o"
+if errorlevel 1 goto error_kernel
 cd ..
 cd ..
 cd build

@@ -12,6 +12,7 @@ INPUT
     MemoryMap.o
     TextPrint.o
     Binaries.o
+    Heap.o
 )
 
 OUTPUT

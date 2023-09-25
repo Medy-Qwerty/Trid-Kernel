@@ -2,6 +2,7 @@
 #include "IDT.h"
 #include "Keyboard.h"
 #include "MemoryMap.h"
+#include "Heap.h"
 
 extern const char Test[];
 extern const char Logo[];
