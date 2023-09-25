@@ -4,7 +4,7 @@ MemorySegmentHeader* FirstFreeMemorySegment;
 
 void InitializeHeap(uint_64 heapAddress, uint_64 heapLength) {
     FirstFreeMemorySegment = (MemorySegmentHeader*)heapAddress;
-    FirstFreeMemorySegment->MemoryLength = heapLength;
+    FirstFreeMemorySegment->MemoryLength = heapLength - sizeof(MemorySegmentHeader);
     FirstFreeMemorySegment->NextSegment = 0;
     FirstFreeMemorySegment->PreviousSegment = 0;
     FirstFreeMemorySegment->NextFreeSegment = 0;
