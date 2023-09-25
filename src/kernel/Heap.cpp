@@ -35,6 +35,10 @@ void* malloc(uint_64 size) {
                 currentMemorySegment->NextSegment = newSegmentHeader;
             }
 
+            if (currentMemorySegment == FirstFreeMemorySegment) {
+                FirstFreeMemorySegment = currentMemorySegment->NextFreeSegment;
+            }
+
             return currentMemorySegment + 1;
         }
     }
