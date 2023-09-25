@@ -12,3 +12,4 @@ build/KernelCPP.o
 build/Keyboard.o
 build/MemoryMap.o
 build/TextPrint.o
+build/Heap.o
