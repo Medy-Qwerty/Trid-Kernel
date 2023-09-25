@@ -9,3 +9,5 @@ struct MemorySegmentHeader {
     MemorySegmentHeader* PreviousFreeSegment;
     bool Free;
 };
+
+extern void InitializeHeap(uint_64 heapAddress, uint_64 heapLength);

@@ -10,6 +10,7 @@ extern const char Logo[];
 extern "C" void _start() {
     ClearScreen();
     SetCursorPosition(PositionFromCoords(0, 0));
+    InitializeHeap(0x100000, 0x100000);
     PrintString(Logo, BACKGROUND_BLINKINGGREEN | FOREGROUND_LIGHTCYAN);
     PrintString("\n\r");
     PrintString("Welcome to Trid-Kernel Beta v0.1.9\n\r\n\r", BACKGROUND_BLINKINGGREEN | FOREGROUND_LIGHTCYAN);
