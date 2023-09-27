@@ -10,6 +10,18 @@ extern const char Logo[];
 extern "C" void _start() {
     ClearScreen();
     SetCursorPosition(PositionFromCoords(0, 0));
+    MainKeyboardHandler = KeyboardHandler;
+    InitializeIDT();
+    InitializeHeap(0x100000, 0x100000);
+    void* TestMemoryAddress = malloc(0x10);
+    void* TestMemoryAddress2 = malloc(0x10);
+    void* TestMemoryAddress3 = malloc(0x10);
+    void* TestMemoryAddress4 = malloc(0x60);
+    free(TestMemoryAddress);
+    free(TestMemoryAddress2);
+    free(TestMemoryAddress3);
+    free(TestMemoryAddress4);
+
     PrintString(Logo, BACKGROUND_BLINKINGGREEN | FOREGROUND_LIGHTCYAN);
     PrintString("\n\r");
     PrintString("Welcome to Trid-Kernel Beta v0.2.2\n\r\n\r", BACKGROUND_BLINKINGGREEN | FOREGROUND_LIGHTCYAN);
@@ -51,13 +63,9 @@ extern "C" void _start() {
     PrintString("\n\r");
     PrintString("Testing Dynamic Memory: ");
     PrintString("Malloc: ");
-    InitializeHeap(0x100000, 0x100000);
-    void* TestMallocMemoryAddress = malloc(0x10);
-    PrintString(HexToString((uint_64)TestMallocMemoryAddress), BACKGROUND_BLUE | FOREGROUND_RED);
+    PrintString(HexToString((uint_64)TestMemoryAddress), BACKGROUND_BLUE | FOREGROUND_RED);
 
     PrintString("\n\r");
     PrintString("IDT Test: ");
-    MainKeyboardHandler = KeyboardHandler;
-    InitializeIDT();
     return;
 }
