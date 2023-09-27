@@ -59,6 +59,27 @@ void* malloc(uint_64 size) {
     return 0; // We Should Never Get There
 }
 
+void CombineFreeSegments(MemorySegmentHeader* a, MemorySegmentHeader* b) {
+    if (a == 0) return;
+    if (b == 0) return;
+    if (a < b) {
+        a->MemoryLength += b->MemoryLength + sizeof(MemorySegmentHeader);
+        a->NextSegment = b->NextSegment;
+        a->NextFreeSegment = b->NextFreeSegment;
+        b->NextSegment->PreviousSegment = a;
+        b->NextSegment->PreviousFreeSegment = a;
+        b->NextFreeSegment->PreviousFreeSegment = a;
+    }
+    else {
+        b->MemoryLength += a->MemoryLength + sizeof(MemorySegmentHeader);
+        b->NextSegment = a->NextSegment;
+        b->NextFreeSegment = a->NextFreeSegment;
+        a->NextSegment->PreviousSegment = b;
+        a->NextSegment->PreviousFreeSegment = b;
+        a->NextFreeSegment->PreviousFreeSegment = b;
+    }
+}
+
 void free(void* address) {
     MemorySegmentHeader* currentMemorySegment = ((MemorySegmentHeader*)address) - 1;
     currentMemorySegment->Free = true;
