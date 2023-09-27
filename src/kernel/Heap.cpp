@@ -96,8 +96,10 @@ void free(void* address) {
     }
     if (currentMemorySegment->NextSegment != 0) {
         currentMemorySegment->NextSegment->PreviousSegment = currentMemorySegment;
+        if (currentMemorySegment->NextSegment->Free) CombineFreeSegments(currentMemorySegment, currentMemorySegment->NextSegment);
     }
      if (currentMemorySegment->PreviousSegment != 0) {
         currentMemorySegment->PreviousSegment->NextSegment = currentMemorySegment;
+        if (currentMemorySegment->PreviousSegment->Free) CombineFreeSegments(currentMemorySegment, currentMemorySegment->PreviousSegment);
     }
 }
