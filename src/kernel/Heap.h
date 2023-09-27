@@ -13,3 +13,5 @@ struct MemorySegmentHeader {
 extern void InitializeHeap(uint_64 heapAddress, uint_64 heapLength);
 
 extern void* malloc(uint_64 size);
+
+void free(void* address);
