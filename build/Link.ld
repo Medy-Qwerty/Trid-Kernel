@@ -8,11 +8,12 @@ INPUT
     KernelCPP.o
     IDT.o
     IO.o
-    Keyboard.o
     MemoryMap.o
     TextPrint.o
-    Binaries.o
+    Keyboard.o
     Heap.o
+    Memory.o
+    Binaries.o
 )
 
 OUTPUT

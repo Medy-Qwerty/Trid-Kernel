@@ -13,3 +13,4 @@ build/Keyboard.o
 build/MemoryMap.o
 build/TextPrint.o
 build/Heap.o
+build/Memory.o

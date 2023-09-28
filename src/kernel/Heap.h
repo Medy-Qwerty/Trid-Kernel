@@ -1,5 +1,6 @@
 #pragma once
 #include "Typedefs.h"
+#include "Memory.h"
 
 struct MemorySegmentHeader {
     uint_64 MemoryLength;
