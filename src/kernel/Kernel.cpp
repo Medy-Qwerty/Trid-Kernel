@@ -24,7 +24,7 @@ extern "C" void _start() {
 
     PrintString(Logo, BACKGROUND_BLINKINGGREEN | FOREGROUND_LIGHTCYAN);
     PrintString("\n\r");
-    PrintString("Welcome to Trid-Kernel Beta v0.2.3\n\r\n\r", BACKGROUND_BLINKINGGREEN | FOREGROUND_LIGHTCYAN);
+    PrintString("Welcome to Trid-Kernel Beta v0.2.4\n\r\n\r", BACKGROUND_BLINKINGGREEN | FOREGROUND_LIGHTCYAN);
 
     PrintString("Hex to String Function Test: ");
     PrintString(HexToString(0x1234abcd), BACKGROUND_BLUE | FOREGROUND_RED);
@@ -50,7 +50,7 @@ extern "C" void _start() {
     PrintString(IntegerToString(MemoryRegionCount), BACKGROUND_BLUE | FOREGROUND_RED);
     //PrintString("\n\r");
     //PrintString("Memory Regions: \n");
-    //MemoryMapEntry** usableMemoryMaps = GetUsableMemoryRegions();
+    MemoryMapEntry** usableMemoryMaps = GetUsableMemoryRegions();
 
     //for (uint_8 i = 0; i < UsableMemoryRegionCount; i++) {
         //MemoryMapEntry* memMap = usableMemoryMaps[i];
