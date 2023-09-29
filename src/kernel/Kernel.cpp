@@ -27,6 +27,7 @@ extern "C" void _start() {
     free(TestMemoryAddress2);
     free(TestMemoryAddress3);
     free(TestMemoryAddress4);
+    free(TestMemoryAddress5);
 
     PrintString(Logo, BACKGROUND_BLINKINGGREEN | FOREGROUND_LIGHTCYAN);
     PrintString("\n\r");
