@@ -11,6 +11,13 @@ struct MemorySegmentHeader {
     bool Free;
 };
 
+struct AllignedMemorySegmentHeader {
+    uint_64 MemorySegmentHeaderAddress : 63;
+    bool isAlligned : 1;
+};
+
+extern MemorySegmentHeader* FirstFreeMemorySegment;
+
 void InitializeHeap(uint_64 heapAddress, uint_64 heapLength);
 
 void* calloc(uint_64 size);
