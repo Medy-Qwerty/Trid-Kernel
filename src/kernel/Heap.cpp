@@ -101,7 +101,15 @@ void CombineFreeSegments(MemorySegmentHeader* a, MemorySegmentHeader* b) {
 }
 
 void free(void* address) {
-    MemorySegmentHeader* currentMemorySegment = ((MemorySegmentHeader*)address) - 1;
+    MemorySegmentHeader* currentMemorySegment;
+
+    AlignedMemorySegmentHeader* AMSH = (AlignedMemorySegmentHeader*)address - 1;
+    if (AMSH->isAlligned) {
+        currentMemorySegment = (MemorySegmentHeader*)(uint_64)AMSH->MemorySegmentHeaderAddress;
+    }
+    else {
+        currentMemorySegment = ((MemorySegmentHeader*)address) - 1;
+    }
     currentMemorySegment->Free = true;
 
     if (currentMemorySegment < FirstFreeMemorySegment) FirstFreeMemorySegment = currentMemorySegment;
