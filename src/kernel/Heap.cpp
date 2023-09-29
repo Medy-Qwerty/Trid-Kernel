@@ -123,3 +123,30 @@ void free(void* address) {
         if (currentMemorySegment->PreviousSegment->Free) CombineFreeSegments(currentMemorySegment, currentMemorySegment->PreviousSegment);
     }
 }
+
+void* aligned_alloc(uint_64 alignment, uint_64 size) {
+    uint_64 alignmentRemainder = alignment % 8;
+    alignment -= alignmentRemainder;
+    if (alignmentRemainder != 0) alignment += 8;
+
+    uint_64 sizeRemainder = size % 8;
+    size -= sizeRemainder;
+    if (sizeRemainder != 0) size += 8;
+
+    uint_64 fullSize = size + alignment;
+
+    void* mallocVal = malloc(fullSize);
+    uint_64 address = (uint_64)mallocVal;
+
+    uint_64 remainder = address % alignment;
+    address -= remainder;
+    if (remainder != 0) {
+        address += alignment;
+
+        AlignedMemorySegmentHeader* AMSH = (AlignedMemorySegmentHeader*)address - 1;
+        AMSH->isAlligned = true;
+        AMSH->MemorySegmentHeaderAddress = (uint_64)mallocVal - sizeof(MemorySegmentHeader);
+    }
+
+    return (void*)address;
+}

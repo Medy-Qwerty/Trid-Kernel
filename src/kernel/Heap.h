@@ -11,7 +11,7 @@ struct MemorySegmentHeader {
     bool Free;
 };
 
-struct AllignedMemorySegmentHeader {
+struct AlignedMemorySegmentHeader {
     uint_64 MemorySegmentHeaderAddress : 63;
     bool isAlligned : 1;
 };
@@ -25,5 +25,7 @@ void* calloc(uint_64 size);
 void* realloc(void* address, uint_64 newSize);
 
 void* malloc(uint_64 size);
+
+void* aligned_alloc(uint_64 allignment, uint_64 size);
 
 void free(void* address);
