@@ -70,7 +70,16 @@ void* malloc(uint_64 size) {
 }
 
 void* realloc(void* address, uint_64 newSize) {
-    MemorySegmentHeader* oldSegmentHeader = (MemorySegmentHeader*)address - 1;
+    MemorySegmentHeader* oldSegmentHeader;
+
+    AlignedMemorySegmentHeader* AMSH = (AlignedMemorySegmentHeader*)address - 1;
+    if (AMSH->isAlligned) {
+        oldSegmentHeader = (MemorySegmentHeader*)(uint_64)AMSH->MemorySegmentHeaderAddress;
+    }
+    else {
+        oldSegmentHeader = ((MemorySegmentHeader*)address) - 1;
+    }
+    
     uint_64 smallerSize = newSize;
     if (oldSegmentHeader->MemoryLength < newSize) smallerSize = oldSegmentHeader->MemoryLength;
     void* newMem = malloc(newSize);
