@@ -2,8 +2,11 @@ bin/Kernel.flp
 
 bochsrc.bxrc
 
+build/KernelASM.o
 build/Binaries.o
+libkernel.a
 build/Bootloader.bin
+build/Kernel.bin
 
 CMakeFiles
 Makefile
