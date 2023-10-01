@@ -4,21 +4,14 @@ ENTRY(_start)
 
 INPUT
 (
-    KernelASM.o
-    KernelCPP.o
-    IDT.o
-    IO.o
-    MemoryMap.o
-    TextPrint.o
-    Keyboard.o
-    Heap.o
-    Memory.o
-    Binaries.o
+    build/KernelASM.o
+    build/Binaries.o
+    libkernel.a
 )
 
 OUTPUT
 (
-    Kernel.bin
+    build/Kernel.bin
 )
 
 SECTIONS
