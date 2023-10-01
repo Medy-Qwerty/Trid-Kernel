@@ -17,30 +17,17 @@ if errorlevel 1 goto error_bldr
 cd ..
 echo Compiling Kernel...
 cd kernel
-nasm Kernel.asm -f elf64 -o %BUILD_PATH%\KernelASM.o"
+nasm Kernel.asm -f elf64 -i src -o %BUILD_PATH%\KernelASM.o"
 if errorlevel 1 goto error_kernel
-nasm Binaries.asm -f elf64 -o %BUILD_PATH%\Binaries.o"
-x86_64-elf-gcc -Ttext 0x8000 -ffreestanding -mno-red-zone -m64 -c "Kernel.cpp" -o %BUILD_PATH%\KernelCPP.o"
-if errorlevel 1 goto error_kernel
-x86_64-elf-gcc -Ttext 0x8000 -ffreestanding -mno-red-zone -m64 -c "IDT.cpp" -o %BUILD_PATH%\IDT.o"
-if errorlevel 1 goto error_kernel
-x86_64-elf-gcc -Ttext 0x8000 -ffreestanding -mno-red-zone -m64 -c "IO.cpp" -o %BUILD_PATH%\IO.o"
-if errorlevel 1 goto error_kernel
-x86_64-elf-gcc -Ttext 0x8000 -ffreestanding -mno-red-zone -m64 -c "Keyboard.cpp" -o %BUILD_PATH%\Keyboard.o"
-if errorlevel 1 goto error_kernel
-x86_64-elf-gcc -Ttext 0x8000 -ffreestanding -mno-red-zone -m64 -c "MemoryMap.cpp" -o %BUILD_PATH%\MemoryMap.o"
-if errorlevel 1 goto error_kernel
-x86_64-elf-gcc -Ttext 0x8000 -ffreestanding -mno-red-zone -m64 -c "TextPrint.cpp" -o %BUILD_PATH%\TextPrint.o"
-if errorlevel 1 goto error_kernel
-x86_64-elf-gcc -Ttext 0x8000 -ffreestanding -mno-red-zone -m64 -c "Heap.cpp" -o %BUILD_PATH%\Heap.o"
-if errorlevel 1 goto error_kernel
-x86_64-elf-gcc -Ttext 0x8000 -ffreestanding -mno-red-zone -m64 -c "Memory.cpp" -o %BUILD_PATH%\Memory.o"
+nasm Binaries.asm -f elf64 -i src -o %BUILD_PATH%\Binaries.o"
 if errorlevel 1 goto error_kernel
 cd ..
 cd ..
+cmake CMakeLists.txt -G "Unix Makefiles" -D CMAKE_CXX_COMPILER=x86_64-elf-gcc -D CMAKE_C_COMPILER=x86_64-elf-gcc
+if errorlevel 1 goto error_kernel
+make -f "Makefile"
+if errorlevel 1 goto error_kernel
 cd build
-x86_64-elf-ld -T"Link.ld"
-if errorlevel 1 goto error_split
 copy /b Bootloader.bin+Kernel.bin %BIN_PATH%\Kernel.flp
 if errorlevel 1 goto error_split
 color F2
